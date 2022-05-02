@@ -7,7 +7,7 @@ app.listen(8080, function(){
 });
 
 app.get('/Park', function(req, res){
-  res.send("이미 죽은 군인이다");
+  res.sendFile(__dirname + '/Park.html');
 });
 
 app.get('/Gang', function(req, res){

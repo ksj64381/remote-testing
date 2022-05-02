@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>박윤겸의 무덤</title>
+    <meta charset="utf-8-sig">
+  </head>
+  <body style="background-color: grey;">
+    <button type="button", onclick="location.href='/'"> 뒤로 가기☜ </button>
+    <br>
+    <a style="color: red; font: 3em 궁서; text-align: center;">
+      부활까지:
+      <script>
+        const date1 = new Date();
+        const date2 = new Date("2023-06-25");
+
+        const date_diff = date1.getTime() - date2.getTime();
+
+        const diff_2_days = Math.floor(Math.abs(date_diff/(1000*3600*24)))
+
+        document.write(diff_2_days + '일')
+      </script>
+    </a>
+  </body>
+</html>
