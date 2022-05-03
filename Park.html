@@ -2,22 +2,49 @@
 <html>
   <head>
     <title>박윤겸의 무덤</title>
-    <meta charset="utf-8-sig">
+    <meta charset="utf-8-sig" />
+
+    <style>
+      #Progress {
+        width: 100%;
+        background-color: gray;
+      }
+
+      #bar {
+        width: 1%;
+        height: 30px;
+        background-color: green;
+      }
+    </style>
   </head>
-  <body style="background-color: grey;">
-    <button type="button", onclick="location.href='/'"> 뒤로 가기☜ </button>
-    <br>
-    <a style="color: red; font: 3em 궁서; text-align: center;">
-      부활까지:
+  <body style="background-color: rgb(rgb(34, 34, 34), green, blue)">
+    <button type="button" , onclick="location.href='/'">뒤로 가기☜</button>
+    <br />
+    <div id="Progress">
+      <div id="bar"></div>
+    </div>
+
+    <a style="color: red; font: 5em">
       <script>
-        const date1 = new Date();
-        const date2 = new Date("2023-06-25");
+        const date1 = new Date()
+        const date2 = new Date('2023-06-25')
+        const date3 = new Date('2021-12-17')
 
-        const date_diff = date1.getTime() - date2.getTime();
+        const date_diff1 = date1.getTime() - date2.getTime()
+        const date_diff1_d = Math.floor(
+          Math.abs(date_diff1 / (1000 * 3600 * 24))
+        )
 
-        const diff_2_days = Math.floor(Math.abs(date_diff/(1000*3600*24)))
+        const date_diff2 = date3.getTime() - date2.getTime()
+        const date_diff2_d = Math.floor(
+          Math.abs(date_diff2 / (1000 * 3600 * 24))
+        )
 
-        document.write(diff_2_days + '일')
+        document.write('전역까지' + date_diff1_d + '일')
+
+        let elem = document.getElementById('bar')
+        let width = 100 - (date_diff1 / date_diff2_d) * 100
+        elem.style.width = width + '%'
       </script>
     </a>
   </body>
