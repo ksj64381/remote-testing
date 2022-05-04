@@ -3,49 +3,44 @@
   <head>
     <title>박윤겸의 무덤</title>
     <meta charset="utf-8-sig" />
-
-    <style>
-      #Progress {
-        width: 100%;
-        background-color: gray;
-      }
-
-      #bar {
-        width: 1%;
-        height: 30px;
-        background-color: green;
-      }
-    </style>
   </head>
-  <body style="background-color: rgb(rgb(34, 34, 34), green, blue)">
-    <button type="button" , onclick="location.href='/'">뒤로 가기☜</button>
-    <br />
-    <div id="Progress">
-      <div id="bar"></div>
-    </div>
-
-    <a style="color: red; font: 5em">
-      <script>
-        const date1 = new Date()
-        const date2 = new Date('2023-06-25')
-        const date3 = new Date('2021-12-17')
-
-        const date_diff1 = date1.getTime() - date2.getTime()
-        const date_diff1_d = Math.floor(
-          Math.abs(date_diff1 / (1000 * 3600 * 24))
-        )
-
-        const date_diff2 = date3.getTime() - date2.getTime()
-        const date_diff2_d = Math.floor(
-          Math.abs(date_diff2 / (1000 * 3600 * 24))
-        )
-
-        document.write('전역까지' + date_diff1_d + '일')
-
-        let elem = document.getElementById('bar')
-        let width = 100 - (date_diff1 / date_diff2_d) * 100
-        elem.style.width = width + '%'
-      </script>
-    </a>
+  <body style="background-color: rgb(46, 46, 48)">
+    <div id="box"></div>
   </body>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script>
+
+    //전역일 계산
+    const date1 = new Date()
+    const date2 = new Date('2023-06-25')
+    const date3 = new Date('2021-12-17')
+
+    const date_diff1 = date1.getTime() - date2.getTime()
+    const date_diff1_d = Math.floor(Math.abs(date_diff1 / (1000 * 3600 * 24)))
+
+    const date_diff2 = date3.getTime() - date2.getTime()
+    const date_diff2_d = Math.floor(Math.abs(date_diff2 / (1000 * 3600 * 24)))
+
+        const Park = React.createElement("h1", {style: {color: "red"}}, "전역까지" + date_diff1_d + "일")
+
+    //남은 날짜를 기준으로 현재까지 복무를 몇% 마쳤는지 백분율로 환산
+    let wid = 100 - (date_diff1_d / date_diff2_d) * 100
+    wid = Math.floor(wid * 100) / 100
+    
+    //환산한 값을 사이트에 진행도 바로 표시
+    const elem = document.getElementById('box')
+    const bar = React.createElement('div', {
+      style: { width: wid + '%', backgroundColor: 'green', height: '30px' , color: "white", textAlign: "center"},
+    }, wid +"%")
+    const progress = React.createElement(
+      'div',
+      { style: { width: '500px', backgroundColor: 'gray', height: '30px' } },
+      [bar]
+    )
+
+      const page = React.createElement("div", null, [Park, progress])
+
+    ReactDOM.render(page, elem)
+  </script>
 </html>
