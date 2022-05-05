@@ -29,8 +29,8 @@ app.get('/imgZ',function(req, res){
   });
 });
 
-app.get('/imgJ',function(req, res){
-  fs.readFile('img/RIP_J.png',function(error, data){
+app.get('/imgK',function(req, res){
+  fs.readFile('img/RIP_K.png',function(error, data){
     res.writeHead(200,{'Content-type': 'text/html'});
     res.end(data);
   });
