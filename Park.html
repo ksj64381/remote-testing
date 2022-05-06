@@ -5,8 +5,14 @@
     <meta charset="utf-8-sig" />
   </head>
   <body style="background-color: rgb(46, 46, 48)">
-    <img src="imgK" /><br />
-    <div id="box"></div>
+    <button onclick="location.href='/'"> 뒤로가기</button>
+    <br>
+    <div style="text-align: center;">
+      <img src="imgK"/>
+      <br />
+      <div id="box"></div>
+    </div>
+
   </body>
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -36,11 +42,10 @@
     }, wid +"%")
     const progress = React.createElement(
       'div',
-      { style: { width: '500px', backgroundColor: 'gray', height: '30px' } },
+      { style: { width: '500px', backgroundColor: 'gray', height: '30px', align: 'left'}, align: 'left' },
       [bar]
     )
-
-      const page = React.createElement("div", null, [Park, progress])
+      const page = React.createElement("div", {align: 'center'}, [Park, progress])
 
     ReactDOM.render(page, elem)
   </script>
