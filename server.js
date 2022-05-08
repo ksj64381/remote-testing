@@ -10,12 +10,16 @@ app.get('/Park', function(req, res){
   res.sendFile(__dirname + '/Park.html');
 });
 
+app.get('/Kim', function(req, res){
+  res.sendFile(__dirname + '/Me.html');
+});
+
 app.get('/Gang', function(req, res){
-  res.send("오늘 죽은 군인이다");
+  res.sendFile(__dirname + '/Zento.html');
 });
 
 app.get('/GangJ', function(req, res){
-  res.send("한달 뒤 죽을 군인이다");
+  res.sendFile(__dirname + '/GangJ.html')
 });
 
 app.get('/', function(req, res){
