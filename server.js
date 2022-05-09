@@ -11,11 +11,15 @@ app.get('/Park', function(req, res){
 });
 
 app.get('/Gang', function(req, res){
-  res.send("오늘 죽은 군인이다");
+  res.sendFile(__dirname + '/Zento.html');
 });
 
 app.get('/GangJ', function(req, res){
-  res.send("한달 뒤 죽을 군인이다");
+  res.send("내일 죽을 군인이다");
+});
+
+app.get('/Me', function(req, res){
+  res.send("11월 21일에 죽을 군인이다");
 });
 
 app.get('/', function(req, res){
@@ -31,6 +35,20 @@ app.get('/imgZ',function(req, res){
 
 app.get('/imgK',function(req, res){
   fs.readFile('img/RIP_K.png',function(error, data){
+    res.writeHead(200,{'Content-type': 'text/html'});
+    res.end(data);
+  });
+});
+
+app.get('/imgG',function(req, res){
+  fs.readFile('img/RIP_J.png',function(error, data){
+    res.writeHead(200,{'Content-type': 'text/html'});
+    res.end(data);
+  });
+});
+
+app.get('/imgM',function(req, res){
+  fs.readFile('img/RIP_P.png',function(error, data){
     res.writeHead(200,{'Content-type': 'text/html'});
     res.end(data);
   });
