@@ -15,7 +15,7 @@ app.get('/Gang', function(req, res){
 });
 
 app.get('/GangJ', function(req, res){
-  res.send("내일 죽을 군인이다");
+  res.sendFile(__dirname + '/Gang.html');
 });
 
 app.get('/Me', function(req, res){
